@@ -1,0 +1,166 @@
+{
+	"info": {
+		"_postman_id": "822d0e43-8207-4f1f-8175-7755caa8aebd",
+		"name": "TaxAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "942550"
+	},
+	"item": [
+		{
+			"name": "GeneralTaxCalcByRate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"incoming\":{\r\n      \r\n      \"playedAmount\":5.0,\r\n      \"odd\":1.5\r\n   }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tax/general?rate=0.1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tax",
+						"general"
+					],
+					"query": [
+						{
+							"key": "rate",
+							"value": "0.1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GeneralTaxCalcByAmount",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"incoming\":{\r\n      \r\n      \"playedAmount\":5.0,\r\n      \"odd\":1.5\r\n   }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tax/general?rate=0.1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tax",
+						"general"
+					],
+					"query": [
+						{
+							"key": "rate",
+							"value": "0.1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WinningsTaxCalcByAmount",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"incoming\":{\r\n      \"traderId\": 3,\r\n      \"playedAmount\":5,\r\n      \"odd\":1.5\r\n   }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tax/winnings?amount=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tax",
+						"winnings"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "WinningsTaxCalcByRate",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"incoming\":{\r\n      \"traderId\": 3,\r\n      \"playedAmount\":2.5,\r\n      \"odd\":1.5\r\n   }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/tax/winnings?amount=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"tax",
+						"winnings"
+					],
+					"query": [
+						{
+							"key": "amount",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

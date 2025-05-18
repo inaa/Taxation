@@ -31,6 +31,22 @@ public class TaxServiceTest {
     assertEquals(5.5d, response.getOutgoing().getPossibleReturnAmountAfterTax());
   }
 
+  @Test
+  public void testCalculateWinningsTaxByRateCalculation() {
+    TaxResponse response =
+        taxService.calculateWinningsTaxByRate(taxRequest(5.0d, 1.5d), 0.1d);
+    assertEquals(0.25d, response.getOutgoing().getTaxAmount());
+    assertEquals(7.25d, response.getOutgoing().getPossibleReturnAmountAfterTax());
+  }
+
+  @Test
+  public void testCalculateWinningsTaxByAmountCalculation() {
+    TaxResponse response =
+        taxService.calculateWinningsTaxByAmount(taxRequest(5.0d, 1.5d), 1.0d);
+    assertEquals(1d, response.getOutgoing().getTaxAmount());
+    assertEquals(6.5d, response.getOutgoing().getPossibleReturnAmountAfterTax());
+  }
+
   private TaxRequest taxRequest(double playedAmount, double odd) {
     TaxRequest.Incoming incoming = new TaxRequest.Incoming(0, playedAmount, odd);
     return new TaxRequest(incoming);

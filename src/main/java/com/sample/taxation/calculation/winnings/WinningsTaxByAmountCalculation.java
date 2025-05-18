@@ -16,13 +16,13 @@ public class WinningsTaxByAmountCalculation implements TaxCalculation {
   public TaxResponse calculate(double playedAmount, double odd) {
     double possibleReturnAmountBefTax = roundToTwoDecimalPlaces(playedAmount * odd);
     double winningsAmount = possibleReturnAmountBefTax - playedAmount;
-    
-    // If winnings are less than tax amount, adjust tax amount
-    double actualTaxAmount = Math.min(winningsAmount, taxAmount);
-    double possibleReturnAmountAfterTax = roundToTwoDecimalPlaces(possibleReturnAmountBefTax - actualTaxAmount);
-    
-    // Calculated effective tax rate
-    double effectiveTaxRate = roundToTwoDecimalPlaces(actualTaxAmount / possibleReturnAmountBefTax);
+
+    if (winningsAmount <= taxAmount){
+      throw new Error("Tax cannot exceed gross winnings.");
+    }
+
+    double possibleReturnAmountAfterTax = roundToTwoDecimalPlaces(possibleReturnAmountBefTax - taxAmount);
+    double effectiveTaxRate = roundToTwoDecimalPlaces(taxAmount / possibleReturnAmountBefTax);
 
     TaxResponse.Outgoing outgoing = new TaxResponse.Outgoing(
         possibleReturnAmountAfterTax,
